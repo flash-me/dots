@@ -2,9 +2,10 @@
 
 ## Usage
 
-Just copy the stuff you need to ~
-
-Done.
+- Just copy the stuff you need to ~
+- Install zsh
+- Install a font with powerline support (I'm using [Cascade Code](https://github.com/microsoft/cascadia-code)
+- Done.
 
 ## Contents
 
