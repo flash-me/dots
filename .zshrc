@@ -1,7 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ZSH_DISABLE_COMPFIX="true"
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
     colored-man-pages copydir copyfile
@@ -35,6 +43,13 @@ alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-h
 alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
 zle -N znt-history-widget
 bindkey '^R' znt-history-widget
+zle -N znt-cd-widget
+bindkey "^B" znt-cd-widget
+zle -N znt-kill-widget
+bindkey "^Y" znt-kill-widget
 setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
 zstyle ':completion::complete:n-kill::bits' matcher 'r:|=** l:|=*'
 ### END ###
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
